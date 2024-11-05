@@ -16,7 +16,7 @@ jobs:
         run: yarn install
 
       - name: Run E2E tests
-        run: ${{ github.event.inputs.cli }}
+        run: node runner-electron.js
     env:
       TARGET_TOKEN_ELECTRON: ${{ secrets.TARGET_TOKEN_ELECTRON }}
   cypress-chrome-tests:
@@ -33,7 +33,7 @@ jobs:
         run: yarn install
 
       - name: Run E2E tests
-        run: ${{ github.event.inputs.cli }}
+        run: node runner-chrome.js
     env:
       TARGET_TOKEN_CHROME: ${{ secrets.TARGET_TOKEN_CHROME }}
   cypress-firefox-tests:
@@ -50,6 +50,6 @@ jobs:
         run: yarn install
 
       - name: Run E2E tests
-        run: ${{ github.event.inputs.cli }}
+        run: node runner-firefox.js
     env:
       TARGET_TOKEN_FIREFOX: ${{ secrets.TARGET_TOKEN_FIREFOX }}
